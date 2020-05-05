@@ -1,33 +1,31 @@
 // 1. Copy and paste your prototype in here and refactor into class syntax.
 
-function CuboidMaker(length, width, height) {
-    this.lenght = length;
-    this.width = width;
-    this.height = height;
-  }
+//function CuboidMaker() {
+//  this.lenght = length;
+//    this.width = width;
+//    this.height = height;
+//}
 
-CuboidMaker.prototype.volume = function() {
-    return this.length * this.width * this.height;
-  }
+//CuboidMaker.prototype.volume = function() {
+//    return (this.length * this.width * this.height);
+//}
 
-  CuboidMaker.prototype.surfaceArea = function () {
-    const {length, widht, height} = this;
-    return 2 * (length * width + length * height + width * height);
-  }
+//CuboidMaker.prototype.surfaceArea = function () {
+//    return 2 * (this.length * this.width + this.length * this.height + this.width * this.height);
+//}
 
 class CuboidMaker {
-    constructor({height, width, height}) {
+    constructor({height, width, length}) {
         this.lenght = length;
         this.widht = width;
         this.height = height;
     }
     volume (){
-        return this.length * this.widht * this.height;
+        return (this.length * this.widht * this.height);
     }
 
     surfaceArea() {
-        const {length, widht, height} = this;
-        return 2 * (length * width + length * height + width * height);
+        return (2 * (this.length * this.width + this.length * this.height + this.width * this.height));
     }
 }
 
@@ -35,7 +33,7 @@ const cuboid = new CuboidMaker({
     height: 4,
     width: 5,
     length: 5
-})
+});
 
 // Test your volume and surfaceArea methods by uncommenting the logs below:
 
@@ -47,9 +45,9 @@ console.log(cuboid.surfaceArea()); // 130
 class CubeMaker extends CuboidMaker {
     constructor(cube) {
         const height = cube.side;
-        const lenght = cube.side;
+        const length = cube.side;
         const widht = cube.side;
-        super ({height, width, lenght})
+        super ({height, widht, length})
     }
     volume (){
         return this.widht ** 3;
@@ -57,8 +55,9 @@ class CubeMaker extends CuboidMaker {
     surfaceArea(){
         return 6 * this.width ** 2;
     }
-const cube = new CubeMaker(){
+const cube = new CubeMaker({
     side: 4
-}
+});
+
 console.log(cube.volume());
 console.log(cube.surfaceArea());

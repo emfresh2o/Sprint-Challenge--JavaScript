@@ -23,16 +23,16 @@ const vRaptor = {name: "velociraptor", diet: "carnivorous", weight: "15kg", leng
 // Using your dinosaur objects, log answers to these questions:
 
 // How much did tyrannosaurus weigh?
-console.log(tyrannoSaur, weight);
+console.log(tyrannoSaur.weight);
 
 // What was the diet of a velociraptor?
-console.log(vRaptor, diet);
+console.log(vRaptor.diet);
 
 // How long was a stegosaurus?
-console.log(stegoSaur, lenght);
+console.log(stegoSaur.lenght);
 
 // What time period did tyrannosaurus live in?
-console.log(tyrannoSaur, period);
+console.log(tyrannoSaur.period);
 
 
 // Create a new roar method for the tyrannosaurus.  When called, return "RAWERSRARARWERSARARARRRR!" Log the result.
@@ -129,8 +129,9 @@ The zoos need a list of all their animal's names (animal_name only) converted to
 */
 
 const lowCaseAnimalNames = [];
-zooAnimals.map((animal) => animal.animal_name.toLowerCase()).forEach((animal) => lowCaseAnimalNames.push(animals));
-console.log(lowCaseAnimalNames);
+zooAnimals.map(animal => animal => {
+  return animal_name.toLowerCase()
+});
 
 /* Request 3: .filter() 
 
@@ -138,17 +139,19 @@ The zoos are concerned about animals with a lower population count. Using filter
 
 */
 const lowPopulationAnimals = [];
-zooAnimals.filter((animal) => animal.population < 5).forEach((animal) => lowPopulationAnimals.push(animals));
-console.log(lowPopulationAnimals);
+zooAnimals.filter(animal => {
+  if (animal.population < 5){
+    return true
+  }
+});
 
 /* Request 4: .reduce() 
 
 The zoos need to know their total animal population across the United States. Find the total population from all the zoos using the .reduce() method. Remember the reduce method takes two arguments: a callback (which itself takes two args), and an initial value for the count.
 
 */
-const populationTotal = 0;
-
-populationTotal += zooAnimals.reduce((acrUS, animal) => acrUS + animal.population, 0);
+const populationTotal = zooAnimals.reduce((accumulator, currentValue) => { 
+  return accumulator + currentValue.population}, 0);
 
 console.log(populationTotal);
 

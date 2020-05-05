@@ -1,9 +1,9 @@
 // 1. Copy and paste your prototype in here and refactor into class syntax.
 
-//function CuboidMaker() {
-//  this.lenght = length;
-//    this.width = width;
-//    this.height = height;
+//const CuboidMaker = function CuboidMaker(obj) {
+//  this.lenght = obj.length;
+//    this.width = obj.width;
+//    this.height = obj.height;
 //}
 
 //CuboidMaker.prototype.volume = function() {
@@ -15,17 +15,18 @@
 //}
 
 class CuboidMaker {
-    constructor({height, width, length}) {
-        this.lenght = length;
-        this.widht = width;
-        this.height = height;
+    constructor({length, width, height}) {
+        this.lenght = obj.length;
+        this.widht = obj.width;
+        this.height = obj.height;
     }
+
     volume (){
-        return (this.length * this.widht * this.height);
+        return this.length * this.widht * this.height;
     }
 
     surfaceArea() {
-        return (2 * (this.length * this.width + this.length * this.height + this.width * this.height));
+        return 2 * (this.length * this.width + this.length * this.height + this.width * this.height);
     }
 }
 
